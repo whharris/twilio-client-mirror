@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/AndrewRayCode/twilio-client-mirror.git"
   },
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  },
   "keywords": [
     "twilio"
   ],

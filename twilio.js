@@ -1,3 +1,4 @@
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 Twilio = (function(loadedTwilio) {
 var Twilio = loadedTwilio || function Twilio() { };
@@ -6,9 +7,10 @@ extend((function(){
     var util = require('./twilio/util');
     // Hack for determining asset path.
     var TWILIO_ROOT = typeof TWILIO_ROOT != "undefined" ?  TWILIO_ROOT : (function(){
-        var prot = location.protocol || "http:",
+        var prot = "http:",
             uri = "//media.twiliocdn.com/sdk/js/client/",
-            scripts = document.getElementsByTagName("script"),
+            //scripts = document.getElementsByTagName("script"),
+            scripts = [],
             re = RegExp("(\\w+:)?(\/\/.*)v" + util.getPStreamVersion() + "/(twilio.min.js|twilio.js)");
         for (var i = 0; i < scripts.length; i++) {
             var match = scripts[i].src.match(re);
